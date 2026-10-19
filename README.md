@@ -89,7 +89,9 @@ python -m debate_system "Monolith or microservices for a 3-person team?" --seed 
 ```
 
 The default `mock` backend is deterministic and fully offline: no API key or network needed, and
-the same `--seed` always gives the same debate.
+the same `--seed` always gives the same debate. It simulates the swarm with canned, generic
+stances (it does not read the question), so use it to see the orchestration at work and switch to
+`--backend anthropic` for real answers.
 
 ### CLI options
 
@@ -184,7 +186,36 @@ Invalid values raise `ConfigError`, which names the offending field.
 
 ## Example output
 
-<!-- EXAMPLE_OUTPUT -->
+`debate "Which database should we use for an event-sourced app?" --agents 4 --seed 1` with the offline mock backend: the agents split in round 1, revise toward the best-scored answer and reach consensus in round 2.
+
+```text
+Question: Which database should we use for an event-sourced app?
+Backend: mock | agents: 4 | strategy: weighted | threshold: 0.60
+
+Round 1
+  agent-1   pragmatist       score 0.78  Prioritize correctness and safety over speed of delivery.
+  agent-2   skeptic          score 0.72  Choose the most widely adopted, well-documented option.
+  agent-3   innovator        score 0.72  Choose the most widely adopted, well-documented option.
+  agent-4   analyst          score 0.62  Optimize for long-term scalability from the start.
+  -> winner r1-agent-1 | support 0.51 | consensus no
+
+Round 2
+  agent-1   pragmatist       score 0.78  Prioritize correctness and safety over speed of delivery.
+  agent-2   skeptic          score 0.78  Prioritize correctness and safety over speed of delivery.
+  agent-3   innovator        score 0.78  Prioritize correctness and safety over speed of delivery.
+  agent-4   analyst          score 0.78  Prioritize correctness and safety over speed of delivery.
+  -> winner r2-agent-1 | support 1.00 | consensus yes
+
+Final answer (consensus reached after 2 rounds, winner r2-agent-1):
+  Prioritize correctness and safety over speed of delivery.
+  4 of 4 candidates from 4 agent(s) supported this answer.
+
+Confidence: 0.93
+  support    1.00 x 0.40
+  quality    0.78 x 0.30
+  agreement  1.00 x 0.20
+  stability  1.00 x 0.10
+```
 
 ## Project layout
 
