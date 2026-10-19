@@ -11,11 +11,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
-import string
 from collections.abc import Callable, Mapping, Sequence
 from typing import Any
 
+from debate_system.consensus import normalize_answer
 from debate_system.llm.base import BackendError, LLMRequest
 from debate_system.models import CRITERIA
 
@@ -35,8 +34,6 @@ MIN_SCORE = 4
 MAX_SCORE = 10
 JITTER = 0.05
 
-_WHITESPACE = re.compile(r"\s+")
-
 
 def _digest(seed: int, *parts: object) -> int:
     """Map ``(seed, *parts)`` to a stable 64-bit integer."""
@@ -50,12 +47,6 @@ def _digest(seed: int, *parts: object) -> int:
 def _unit(seed: int, *parts: object) -> float:
     """Map ``(seed, *parts)`` to a stable float in ``[0, 1)``."""
     return _digest(seed, *parts) / 2**64
-
-
-def normalize_answer(text: str) -> str:
-    """Casefold, collapse whitespace and strip trailing punctuation."""
-    collapsed = _WHITESPACE.sub(" ", text.casefold()).strip()
-    return collapsed.rstrip(string.punctuation + " ")
 
 
 def _require(metadata: Mapping[str, Any], role: str, *keys: str) -> list[Any]:

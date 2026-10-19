@@ -13,7 +13,7 @@ from debate_system import __version__
 from debate_system.config import VOTING_STRATEGIES, ConfigError, DebateConfig
 from debate_system.llm import BACKENDS, BackendError, LLMBackend, create_backend
 from debate_system.models import DebateResult, RoundRecord
-from debate_system.orchestrator import DebateError, DebateOrchestrator
+from debate_system.orchestrator import DebateError, DebateOrchestrator, EventHandler
 
 EXIT_OK, EXIT_FAILURE, EXIT_USAGE = 0, 1, 2
 
@@ -141,7 +141,7 @@ def _shorten(text: str, width: int = 60) -> str:
     return textwrap.shorten(" ".join(text.split()), width=width, placeholder="...")
 
 
-def _progress_printer(stream: TextIO) -> Any:
+def _progress_printer(stream: TextIO) -> EventHandler:
     def on_event(name: str, payload: dict[str, Any]) -> None:
         if name == "round_started":
             print(f"[debate] round {payload['round']} started", file=stream)
