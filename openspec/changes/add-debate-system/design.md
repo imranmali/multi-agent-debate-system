@@ -120,8 +120,8 @@ above `consensus_threshold` (default 0.6). Self-votes are excluded unless
 ### Confidence
 
 `confidence = Σ wᵢ·cᵢ` with default weights: vote support 0.4, winner critic
-quality 0.3, answer agreement (largest position size / proposals) 0.2,
-stability (fraction of rounds whose winning position equals the final one)
+quality 0.3, answer agreement (winning position size / proposals) 0.2,
+stability (fraction of voted rounds whose winning position equals the final one)
 0.1. Weights are configurable and normalized to sum to 1; the result is
 clamped to `[0, 1]` and reported with each component.
 

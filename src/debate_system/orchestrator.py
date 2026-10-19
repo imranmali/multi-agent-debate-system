@@ -180,10 +180,10 @@ class DebateOrchestrator:
             return_exceptions=True,
         )
         values: list[T] = []
-        for (agent_id, _), outcome in zip(calls, results):
+        for (agent_id, _), outcome in zip(calls, results, strict=True):
             if isinstance(outcome, BaseException):
                 if not isinstance(outcome, Exception):
-                    raise outcome  # never swallow cancellation / interrupts
+                    raise outcome  # pragma: no cover - never swallow cancellation
                 error = _error(agent_id, role, outcome)
                 record.errors.append(error)
                 self._emit("agent_failed", error=error)
