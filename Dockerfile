@@ -16,7 +16,7 @@ FROM python:3.12-slim AS runtime
 
 LABEL org.opencontainers.image.title="multi-agent-debate" \
       org.opencontainers.image.description="A swarm of LLM agents that propose, critique, vote and synthesize an answer with confidence." \
-      org.opencontainers.image.source="https://github.com/imranmali/multi-agent-dDebate-system" \
+      org.opencontainers.image.source="https://github.com/imranmali/multi-agent-debate-system" \
       org.opencontainers.image.licenses="MIT"
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

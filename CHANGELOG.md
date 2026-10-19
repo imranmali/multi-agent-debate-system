@@ -32,5 +32,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   publishes a container image to GHCR and GitHub Releases for `v*` tags.
 - Dockerfile, README, contributing guide and MIT license.
 
-[Unreleased]: https://github.com/imranmali/multi-agent-dDebate-system/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/imranmali/multi-agent-dDebate-system/releases/tag/v0.1.0
+[Unreleased]: https://github.com/imranmali/multi-agent-debate-system/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/imranmali/multi-agent-debate-system/releases/tag/v0.1.0

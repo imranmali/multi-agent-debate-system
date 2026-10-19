@@ -8,8 +8,8 @@ and commit conventions, the OpenSpec change workflow and the checks every pull r
 Requires Python 3.10 or newer. Node.js 22 is only needed for the OpenSpec CLI.
 
 ```bash
-git clone https://github.com/imranmali/multi-agent-dDebate-system.git
-cd multi-agent-dDebate-system
+git clone https://github.com/imranmali/multi-agent-debate-system.git
+cd multi-agent-debate-system
 python -m venv .venv
 source .venv/bin/activate
 pip install -e '.[dev]'
