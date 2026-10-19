@@ -1,0 +1,23 @@
+# Keep the build context to pyproject.toml, README.md, LICENSE and src/
+.git
+.gitignore
+.github
+.claude
+.venv
+venv
+.env
+**/__pycache__
+**/*.py[cod]
+*.egg-info
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+coverage.xml
+htmlcov
+build
+dist
+tests
+openspec
+Dockerfile
+.dockerignore
