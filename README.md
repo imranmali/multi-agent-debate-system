@@ -142,7 +142,7 @@ debate "Which database should we use?" --backend anthropic --model <model-id>
 ```
 
 The `anthropic` SDK is an optional extra and is imported lazily, so the core package has no
-runtime dependencies. A paid debate costs roughly `agents x rounds x (1 + agents)` calls, which
+runtime dependencies. A paid debate makes up to `rounds x 3 x agents + 1` calls (propose, critique and vote per agent each round, plus one aggregation), which
 is why the defaults are small and the debate stops early on consensus.
 
 ### Custom backends
