@@ -29,7 +29,7 @@
 
 ## 6. Delivery (workstream D)
 
-- [ ] 6.1 Add `.github/workflows/ci.yml` (lint, types, tests 3.10-3.13 with coverage gate, OpenSpec validation, build, Docker smoke) and verify the workflow passes on the PR
+- [x] 6.1 Add `.github/workflows/ci.yml` (lint, types, tests 3.10-3.13 with coverage gate, OpenSpec validation, build, Docker smoke) and verify the workflow passes on the PR
 - [x] 6.2 Add `.github/workflows/release.yml` (GHCR image on main/tags, GitHub Release on tags) and verify both workflows with `actionlint` (no findings)
 - [x] 6.3 Add `Dockerfile` and `.dockerignore`; verify `docker build` and an offline smoke run in CI
 - [x] 6.4 Add `README.md`, `LICENSE` (MIT), `CONTRIBUTING.md` and `CHANGELOG.md`; verify the README quickstart commands run as written
