@@ -158,7 +158,7 @@ error, 2 on invalid arguments.
   self-votes excluded by default.
 - [Confidence is a heuristic, not a calibrated probability] → documented as
   such; every component is reported so users can re-weight.
-- [Cost: agents × rounds × (1 + agents) calls on a paid backend] → small
+- [Cost: up to rounds × 3 × agents + 1 calls on a paid backend] → small
   defaults (3 agents, 3 rounds) and early stop on consensus.
 
 ## Migration Plan
