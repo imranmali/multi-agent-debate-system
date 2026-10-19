@@ -45,6 +45,9 @@ Issues = "https://github.com/imranmali/multi-agent-dDebate-system/issues"
 [tool.hatch.build.targets.wheel]
 packages = ["src/debate_system"]
 
+[tool.hatch.build.targets.sdist]
+include = ["src/debate_system", "tests", "README.md", "LICENSE", "CHANGELOG.md", "pyproject.toml"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
